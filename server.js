@@ -8,11 +8,11 @@ app.use(express.static('public'));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public','index.html' ));
+  res.sendFile(path.join(__dirname, 'public','paginainicial1.html' ));
 });
 
-app.get('/formulario.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public','formulario.html' ));
+app.get('/formulariotrabalho1.html', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public','formulariotrabalho1.html' ));
 });
 
 app.post('/registra-usuario', (req, res) => {
@@ -80,7 +80,7 @@ app.post('/registra-usuario', (req, res) => {
   }
 });
 
-app.post('/edita-usuario', (req, res) => {
+app.post('/editartrabalho.html', (req, res) => {
   const {nome, email, id} = req.body;
   // Aqui começa a validação dos campos do formulário
   let erro = "";
@@ -95,7 +95,7 @@ app.post('/edita-usuario', (req, res) => {
   }
   else{
       // aqui começa o código para inserir o registro no banco de dados
-      let db = new sqlite3.Database('./db/banco.db', (err) => {
+      let db = new sqlite3.Database('db/banco.db', (err) => {
           if (err) {
               return console.error(err.message);
           }
@@ -141,7 +141,7 @@ app.post('/edita-usuario', (req, res) => {
 });
     
 app.get('/ver_usuarios', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public','consulta_usuarios.html' ));
+  res.sendFile(path.join(__dirname, 'public','consulta_usuario_trabalho.html' ));
 });
 
 app.post('/buscar-usuarios', (req, res) => {
